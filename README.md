@@ -1,0 +1,2 @@
+# CurrencyExchangeFrontend
+Angular application
