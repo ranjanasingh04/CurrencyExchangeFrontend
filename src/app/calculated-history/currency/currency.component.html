@@ -1,0 +1,45 @@
+<form [formGroup]="form" class="normal-form" (ngSubmit)="onSubmit()">  
+        <div class="controles-cont">
+            <input type="hidden" formControlName="$key"/>
+            <mat-form-field>
+                <input formControlName="valueToBeCalculated" matInput type="number" placeholder="Number" [errorStateMatcher]="matcher"/>               
+            </mat-form-field>
+            
+            <mat-error *ngIf="form.controls['valueToBeCalculated'].errors?.['required']"> minimum length is 1</mat-error>
+        </div>
+        <div class="controles-cont">
+            <mat-form-field>
+                <mat-label>Source Currency</mat-label>
+                <mat-select formControlName="sourceCurrency" [errorStateMatcher]="matcher" >
+                    <option disabled>Select Source Currency</option>
+                    <mat-option *ngFor="let code of code1 " [value]="code">
+                      {{this.code}}
+                    </mat-option>
+                  </mat-select>               
+                    <mat-error *ngIf="form.controls['sourceCurrency'].errors?.['required']">You must make a selection</mat-error>               
+             </mat-form-field>
+             <mat-form-field>
+                <mat-label>Destination Currency</mat-label>
+                <mat-select formControlName="destinationCurrency"  [errorStateMatcher]="matcher" >
+                    <option disabled>Select destination currency</option>
+                    <mat-option *ngFor="let code of code1  " [value]="code">
+                      {{this.code}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.controls['destinationCurrency'].errors?.['required']"> You must make a selection</mat-error>          
+            </mat-form-field>
+        </div>
+          <div class="controles-cont">
+            <button type="submit" class="btn btn-primary buttonPosition" [disabled]="!form.valid" >Submit</button>  
+           
+        </div>
+
+<div>
+    <mat-form-field>
+        <input formControlName="calculatedValue" matInput type="number" placeholder="Calculated Number" [minlength]="1" [value]="this.calculatedNumber"/>
+    </mat-form-field>
+</div>
+
+
+
+</form>
