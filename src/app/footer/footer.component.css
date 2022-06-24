@@ -1,0 +1,10 @@
+.footer {
+    padding: 20px;
+    position: absolute;
+    width: 97.3%;
+    bottom: 0px;
+    text-align: center;
+    color: grey;
+    white-space: nowrap;
+    
+}
